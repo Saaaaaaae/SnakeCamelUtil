@@ -3,14 +3,16 @@ package snakecamel;
 public class SnakeCamelUtil {
 
 	public static String snakeToCamelcase(String snake_case) {
-		String[] words = snake_case.split("_");
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < words.length - 1; i++) {
-			sb.append(capitalize(words[i]));
+		String[]words=snake_case.split("_");
+		String s="";
+		for(int i=0;i<words.length;i++){
+		    s=s+Character.toUpperCase(words[i].charAt(0));
+		    for(int t=1;t<words[i].length();t++)
+			s=s+words[i].charAt(t);
 		}
-		return new String(sb);
+		return s;
 	}
-	 
+
 	public static String camelToSnakecase(String camelcase) {
 		StringBuilder sb = new StringBuilder();
 		int j = 0;
@@ -22,13 +24,13 @@ public class SnakeCamelUtil {
 					sb.append("_");
 				}
 				sb.append(Character.toLowerCase(c));
-				j = i;
+				j = i+1;
 			}
 		}
 		sb.append(camelcase.substring(j));
 		return new String(sb);
 	}
-	
+
 	static String capitalize(String s) {
 		char first = s.charAt(0);
 		char upperFirst = Character.toUpperCase(first);
@@ -42,5 +44,5 @@ public class SnakeCamelUtil {
 		String rest = s.substring(1);
 		return lowerFirst + rest;
 	}
-	
+
 }
