@@ -3,14 +3,14 @@ package snakecamel;
 public class SnakeCamelUtil {
 
 	public static String snakeToCamelcase(String snake_case) {
-		String[]words=snake_case.split("_");
-		String s="";
-		for(int i=0;i<words.length;i++){
-		    s=s+Character.toUpperCase(words[i].charAt(0));
-		    for(int t=1;t<words[i].length();t++)
-			s=s+words[i].charAt(t);
+		String[] words = snake_case.split("_",0);
+		StringBuilder sb = new StringBuilder();
+		int i=0;
+		while( words.length>i) {
+		    if(words[i].length()==0){	i++;
+		    }else {  sb.append(capitalize(words[i]));i++;}
 		}
-		return s;
+		return new String(sb);
 	}
 
 	public static String camelToSnakecase(String camelcase) {
