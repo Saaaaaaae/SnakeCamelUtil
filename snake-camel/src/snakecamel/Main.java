@@ -9,6 +9,14 @@ import org.junit.Test;
 
 	public class Main {
 		@Test
+		public void capitalizeで空文字のキャメルケースを得ることができる() {
+			SnakeCamelUtil sn=new SnakeCamelUtil();
+			String expected =" ";
+			String actual=sn.capitalize(" ");
+			assertThat(actual,is(expected));
+		}
+
+		@Test
 		public void capitalizeでaのキャメルケースを得ることができる() {
 			SnakeCamelUtil sn=new SnakeCamelUtil();
 			String expected ="A";
@@ -21,6 +29,14 @@ import org.junit.Test;
 			SnakeCamelUtil sn=new SnakeCamelUtil();
 			String expected ="Xyz";
 			String actual=sn.capitalize("xyz");
+			assertThat(actual,is(expected));
+		}
+
+
+		public void uncapitalizeで空文字のスネイクケースを得ることができる() {
+			SnakeCamelUtil sn=new SnakeCamelUtil();
+			String expected =" ";
+			String actual=sn.uncapitalize(" ");
 			assertThat(actual,is(expected));
 		}
 
